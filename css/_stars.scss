@@ -1,0 +1,60 @@
+/*############################*/
+/*      Animations            */
+/*############################*/
+@keyframes animationStarsA {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-95vw);
+    }
+}
+
+@keyframes animationStarsB {
+    from {
+        transform: translateX(95vw);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+
+/*############################*/
+/*      Stars Block           */
+/*############################*/
+#stars-wrp {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin starsTmp ($size, $speed, $animation) {
+    width: $size;
+    height: $size;
+    background: transparent;
+    animation: $animation $speed linear infinite;
+}
+
+#stars1A {
+    @include starsTmp(1px, 50s, animationStarsA)
+}
+
+#stars1B {
+    @include starsTmp(1px, 50s, animationStarsB)
+}
+
+#stars2A {
+    @include starsTmp(2px, 100s, animationStarsA)
+}
+
+#stars2B {
+    @include starsTmp(2px, 100s, animationStarsB)
+}
+
+#stars3A {
+    @include starsTmp(3px, 150s, animationStarsA)
+}
+
+#stars3B {
+    @include starsTmp(3px, 150s, animationStarsB)
+}

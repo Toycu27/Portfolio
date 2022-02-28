@@ -1,0 +1,610 @@
+/**
+ * Portfolio Website
+ * @author Onur Toycu
+ */
+@import "fonts";
+@import "stars";
+
+
+/*############################*/
+/*      Variables             */
+/*############################*/
+$font-color-light: white;
+$font-color-dark: black;
+
+$nav-bg-color: rgba(40, 42, 50, 0.8);
+$footer-bg-color: rgb(50, 52, 54);
+
+$blue-light: rgb(55, 160, 220);
+$blue: rgb(55, 125, 220);
+$blue-dark: rgb(95, 115, 155);
+$blue-grey: rgb(205, 215, 225);
+$grey: grey;
+
+$blockquote-bg-color: rgba(40, 132, 186, 0.2);
+
+$gradient-stars-1: #1b2e42;
+$gradient-stars-2: #0a0c0f;
+$gradient-dark-1: rgb(70, 104, 170);
+$gradient-dark-2: rgb(40, 70, 128);
+$gradient-light-1: rgb(170, 195, 220);
+$gradient-light-2: rgb(160, 182, 204);
+$gradient-warning-1: rgb(172, 86, 86);
+$gradient-warning-2: rgb(160, 62, 62);
+$gradient-success-1: rgb(170, 220, 177);
+$gradient-success-2: rgb(160, 204, 160);
+
+$box-shadow-dark: 0.75em 0.75em 1em 0 rgba(0, 0, 0, 0.4);
+$box-shadow-light: 0.7em 0.7em 1em 0 rgba(0, 0, 0, 0.2);
+
+$border-radius: 0.3em;
+$border-radius-big: 0.5em;
+
+
+/*############################*/
+/*      Common                */
+/*############################*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: $font-color-light;
+    font-size: 16px; /* calc(0.7em + 2vw); */
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Ubuntu, sans-serif;
+}
+
+h1 {
+    font-size: 2.7em;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.9em;
+}
+
+h2 {
+    font-size: 1.7em;
+    letter-spacing: 0.02em;
+}
+
+h3 {
+    font-size: 1.4em;
+    letter-spacing: 0.02em;
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: 100;
+}
+
+p {
+    font-size:1.1em;
+    line-height: 1.4em;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+abbr {
+    text-decoration: none!important;
+    background-color: $blue-light;
+    padding: 0.5em 0.5em 0.3em;
+    margin-bottom: 0.3em;
+    border-radius: $border-radius;
+    display: inline-block;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.social-links {
+    font-size: 2em;
+
+    > a {
+        padding: 0 0.1em;
+    }
+
+    > a:active, > a:hover {
+        color: $blue-light;
+        transition: 0.5s;
+    }
+}
+
+/*############################*/
+/*      Header                */
+/*############################*/
+header {
+    display: block;
+    min-height: 100vh;
+    background-size: cover;
+    background: radial-gradient(ellipse at bottom, $gradient-stars-1 0%, $gradient-stars-2 100%);
+}
+
+#nav-main {
+    font-size: 1.2em;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: $nav-bg-color;
+
+    ul {
+        display: flex;
+        overflow: auto;
+        margin: 0;
+        padding: 0.45em 5vw 0.35em;
+        list-style-type: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    li:last-child {
+        font-size: 1.7em;
+        padding-top: 0.07em;
+        display: none;
+    }
+
+    a {
+        display: inline-block;
+        padding: 0.4em 0.75em 0.3em;
+        margin: 0.1em 0.25em 0.1em;
+    }
+
+    a:hover, a:active, .active {
+        border-radius: 0.3em;
+        background-color: $blue;
+        transition: 0.7s;
+    }
+
+    .active {
+        background-color: $blue-light;
+    }
+
+    .inactive {
+        border-radius: 0.3em;
+        background-color: transparent;
+        transition: 0.5s;
+    }
+}
+
+#nav-dropdown {
+    font-size: 1.2em;
+    position: fixed;
+    top: 2.85em;
+    width: 100%;
+    z-index: 7;
+    background-color: $nav-bg-color;
+
+    ul {
+        overflow: auto;
+        margin: 0;
+        padding: 0.5em 0;
+        list-style-type: none;
+    }
+
+    a {
+        display: inline-block;
+        padding: 0.5em 5vw;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    a:hover, a:active, .active {
+        background-color: $blue;
+        transition: 0.7s;
+    }
+}
+
+#nav-logo {
+    flex-grow: 1;
+
+    img {
+        height: 1.6em;
+        width: 3.2em;
+        filter: blur(0.5px);
+    }
+
+    > a {
+        padding: 0.2em 0 0!important;
+        line-height: 0;
+    }
+
+    > a:hover, > a:active {
+        background-color: transparent;
+    }
+}
+
+
+/*############################*/
+/*      Welcome Block         */
+/*############################*/
+#welcome-wrp {
+    font-size: 1em;
+    text-align: left;
+}
+
+#welcome-box {
+    display: inline-block;
+    max-width: 700px;
+    margin: 5em 5vw;
+    text-align: center;
+}
+
+#welcome-foto {
+    position: relative;
+    top: 80px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+#welcome-msg {
+    text-align: left;
+    border-radius: $border-radius-big;
+    padding: 1.4em;
+    background-color: $nav-bg-color;
+    box-shadow: $box-shadow-dark;
+
+    p {
+        font-size: 1.2em;
+    }
+}
+
+
+/*############################*/
+/*      Sections              */
+/*############################*/
+section {
+    font-size: 1em;
+    padding: 2.25em 5vw 4.75em;
+    text-align: center;
+}
+
+.section-dark {
+    background-color: $blue-dark;
+    color: $font-color-light;
+
+    .gradient {
+        border-radius: 0.5em;
+        background: radial-gradient(circle at 20% 20%, $gradient-dark-1 35%, $gradient-dark-2 100%);
+        box-shadow: $box-shadow-dark;
+    }
+}
+
+.section-light {
+    background-color:$blue-grey;
+    color: $font-color-dark;
+
+    .gradient {
+        border-radius: 0.5em;
+        background: radial-gradient(circle at 20% 20%, $gradient-light-1 35%, $gradient-light-2 100%);
+        box-shadow: $box-shadow-light;
+    }
+}
+
+.section-bg-rocket {
+    overflow:hidden;
+    position: absolute;
+    text-align: left;
+    left: 1em;
+    color: rgba($blue-dark, 0.1);
+
+    > i {
+        font-size: 35em;
+        transform: rotate(90deg);
+    }
+}
+
+.section-bg-envelope {
+    overflow:hidden;
+    position: absolute;
+    text-align: right;
+    right: 2em;
+    width: 95vw;
+    color: rgba($blue-dark, 0.1);
+
+    > i {
+        font-size: 35em;
+        transform: rotate(5deg);
+    }
+}
+
+
+
+
+
+/*############################*/
+/*      Skill Block           */
+/*############################*/
+.skill-wrp {
+    width: calc(25vw - 6.5em);
+    min-width: 310px;
+    padding: 0.6em;
+    margin: 0px 0.95em 1.9em;
+
+    > h2 {
+        margin-top: 0.4em;
+        margin-bottom: 0.7em;
+    }
+
+    > p {
+        margin: 1.7em 1em 1em;
+    }
+}
+
+.skill-icon {
+    font-size: 4em;
+}
+
+
+/*############################*/
+/*      Ref Block             */
+/*############################*/
+.ref-wrp {
+    width: calc(30vw - 6.5em);
+    min-width: 320px;
+    margin: 0px 0.95em 1.9em;
+
+    .ref-contact {
+        color: $font-color-light;
+        background-color: $blue;
+        padding: 0.45em 0.75em;
+        border-radius: 0.3em;
+        font-size: small;
+    }
+
+    .ref-contact:active, 
+    .ref-contact:hover {
+        background-color: $blue-light;
+        transition: 0.7s;
+    }
+}
+
+.ref-photo {
+    position: relative;
+    top: 65px;
+    right: -15%;
+    margin-top: -65px;
+    width: 120px;
+    height:120px;
+    object-fit: cover;
+    border-radius: 100%;
+    z-index: 5;
+    box-shadow: 0px 0px 7px $grey;
+}
+
+.ref-info {
+    position:relative;
+    text-align: left;
+    border-radius: $border-radius-big;
+    padding: 1em;
+
+    > blockquote {
+        margin: 1.4em 1.2em 0 1.5em;
+    }
+
+    &::before,
+    &::after {
+        font-size: 8em;
+        position: absolute;
+        line-height: 0;
+        color: $blockquote-bg-color;
+    }
+
+    &::before {
+        content: "„";
+        bottom: 4.2rem;
+        left: 0.7rem;
+    }
+
+    &::after {
+        content: "“";
+        top: 8.5rem;
+        right: 0.4rem;
+    }
+}
+
+.ref-name {
+    font-size: 1.4em;
+    letter-spacing: 0.02em;
+    margin-top: 0em;
+    margin-bottom: 0.6em;
+}
+
+
+/*############################*/
+/*      Resume Block          */
+/*############################*/
+.resume-wrp {
+    width: 20%;
+    min-width: 342px;
+    text-align: left;
+    padding: 1.25em;
+    margin: 0px 0.95em 1.9em;
+
+    > h2 {
+        margin-top: 0;
+    }
+
+    ul {
+        padding-left: 1.4em;
+        border-left: 1px solid $blue-light;
+        margin: 0 0 0 0.45em;
+    }
+
+    li {
+        padding-bottom:2em;
+        list-style-type: none;
+        position: relative;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        &::before {
+            content: '⬤';
+            color: $blue-light;
+            position: absolute;
+            left: -1.6em;
+            top: -0.2em;
+            font-size: 1.2em;
+        }
+
+        *:first-child {
+            margin-top: 0;
+        }
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.resume-position {
+    font-size: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.13em;
+}
+
+.resume-company {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.resume-date {
+    font-size: 1em;
+    line-height: 1em;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* Contact Form */
+.contact-wrp, .message {
+    padding: 1.9em;
+    max-width:500px;
+    margin: 0 auto;
+}
+
+.message {
+    margin-top: 2em;
+}
+
+.success {
+    border-radius: 0.5em;
+    background: radial-gradient(circle at 20% 20%, $gradient-success-1 35%, $gradient-success-2 100%);
+    box-shadow: $box-shadow-light;
+}
+
+.warning {
+    border-radius: 0.5em;
+    background: radial-gradient(circle at 20% 20%, $gradient-warning-1 35%, $gradient-warning-2 100%);
+    box-shadow: $box-shadow-light;
+}
+
+input,
+textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding:0.6em;
+    margin: 0 auto 1.2em;
+    border: 2px solid transparent;
+    border-radius: $border-radius-big;
+    outline: none;
+    background-color: white;
+
+    &:hover {
+        border: 2px solid $blue-light;
+        transition: 0.5s;
+    }
+
+    &[type="button"] {
+        color: white;
+        background-color: $blue;
+        padding: 1em 0.6em;
+        margin-bottom: 0;
+        font-size: 1.2em;
+
+        &:hover {
+            background-color: $blue-light;
+            border: 2px solid $blue-light;
+        }
+    }
+}
+
+
+/*############################*/
+/*      Footer Block          */
+/*############################*/
+footer {
+    text-align: center;
+    padding: 1em 5vw;
+    background-color: $footer-bg-color;
+}
+
+#trademark {
+    font-size: 0.9em;
+    margin-top:0.6em;
+}
+
+
+/*############################*/
+/*      Media Querys          */
+/*############################*/
+@media only screen and (max-width: 480px) {
+    .section-bg-rocket {
+        left: 2em;
+        margin-top: -1em;
+
+        > i {
+            font-size: 20em;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #welcome-foto {
+        top: 50px;
+    }
+
+    #nav-main li + li {
+        display: none;
+    }
+
+    #nav-main li:last-child {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1024px) {}
+
+@media only screen and (max-width: 1200px) {
+    .section-bg-envelope {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .ref-photo {
+        right: -25%;
+    }
+}
+
+@media only screen and (min-width: 1401px) {}

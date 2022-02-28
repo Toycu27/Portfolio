@@ -1,0 +1,14 @@
+AddDefaultCharset UTF-8
+# SetOutputFilter DEFLATE
+Header set X-Content-Type-Options "nosniff"
+Header append Vary Accept-Encoding
+
+ExpiresActive On
+ExpiresByType text/css "access plus 1 days"
+ExpiresByType application/javascript "access plus 1 days"
+ExpiresByType application/x-javascript "access plus 1 days"
+ExpiresByType image/gif "access plus 1 days"
+ExpiresByType image/jpeg "access plus 1 days"
+ExpiresByType image/png "access plus 1 days"
+ExpiresByType image/x-icon "access plus 1 days"
+ExpiresByType image/svg+xml "access plus 1 days"
