@@ -238,24 +238,32 @@ class Star {
  * @returns {undefined}
  */
 function submitContactForm() {
-    let elements = document.forms['contact'].elements;
+    let form = document.forms['contact'];
+    let elements = form.elements;
     let name = elements.name.value;
     let email = elements.email.value;
     let message = elements.message.value;
     
     try {
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "mail.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 let responseArr = JSON.parse(this.responseText);
                 let contactMsgBox = document.getElementById('contact-message');
+                if (responseArr.success === true) form.reset();
+
                 contactMsgBox.innerHTML = '';
                 responseArr.messages.warning.forEach(message => contactMsgBox.insertAdjacentHTML('beforeend', message));
                 responseArr.messages.success.forEach(message => contactMsgBox.insertAdjacentHTML('beforeend', message));
+                
+                const messageElems = document.getElementsByClassName('message');
+                for (let messageElem of messageElems) {
+                    messageElem.classList.add('animate__animated', 'animate__slow', 'animate__bounceIn');
+                }
             }
         };
+        xhttp.open("POST", "mail.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("name=" + name + "&email=" + email + "&message=" + message);
     } catch {
         document.getElementById('contact-message').innerHTML = 
