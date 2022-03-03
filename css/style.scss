@@ -47,6 +47,7 @@ $border-radius-big: 0.5em;
 /*############################*/
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -165,14 +166,14 @@ header {
 
         &:hover, &:active {
             border-radius: $border-radius-link;
-            background-color: $blue;
+            background-color: $blue-light;
             transition: 0.7s;
         }
     }
 
     .active {
         border-radius: $border-radius-link;
-        background-color: $blue-light;
+        background-color: $blue;
         transition: 0.7s;
     }
 
@@ -640,6 +641,10 @@ footer {
 
     #nav-main li:last-child {
         display: block;
+    }
+
+    .section-bg-rocket {
+        display:none;
     }
 }
 
