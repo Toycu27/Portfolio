@@ -37,7 +37,8 @@ $gradient-success-2: rgb(160, 204, 160);
 $box-shadow-dark: 0.75em 0.75em 1em 0 rgba(0, 0, 0, 0.4);
 $box-shadow-light: 0.7em 0.7em 1em 0 rgba(0, 0, 0, 0.2);
 
-$border-radius: 0.3em;
+$border-radius-tag: 0.8em;
+$border-radius-link: 0.3em;
 $border-radius-big: 0.5em;
 
 
@@ -95,7 +96,7 @@ abbr {
     background-color: $blue-light;
     padding: 0.5em 0.5em 0.3em;
     margin-bottom: 0.3em;
-    border-radius: $border-radius;
+    border-radius: $border-radius-tag;
     display: inline-block;
 }
 
@@ -114,11 +115,11 @@ abbr {
 
     > a {
         padding: 0 0.1em;
-    }
 
-    > a:active, > a:hover {
-        color: $blue-light;
-        transition: 0.5s;
+        &:hover, &:active {
+            color: $blue-light;
+            transition: 0.5s;
+        }
     }
 }
 
@@ -161,20 +162,22 @@ header {
         display: inline-block;
         padding: 0.4em 0.75em 0.3em;
         margin: 0.1em 0.25em 0.1em;
-    }
 
-    a:hover, a:active, .active {
-        border-radius: 0.3em;
-        background-color: $blue;
-        transition: 0.7s;
+        &:hover, &:active {
+            border-radius: $border-radius-link;
+            background-color: $blue;
+            transition: 0.7s;
+        }
     }
 
     .active {
+        border-radius: $border-radius-link;
         background-color: $blue-light;
+        transition: 0.7s;
     }
 
     .inactive {
-        border-radius: 0.3em;
+        border-radius: $border-radius-link;
         background-color: transparent;
         transition: 0.5s;
     }
@@ -200,11 +203,11 @@ header {
         padding: 0.5em 5vw;
         width: 100%;
         box-sizing: border-box;
-    }
 
-    a:hover, a:active, .active {
-        background-color: $blue;
-        transition: 0.7s;
+        &:hover, &:active, .active {
+            background-color: $blue;
+            transition: 0.7s;
+        }
     }
 }
 
@@ -220,10 +223,10 @@ header {
     > a {
         padding: 0.2em 0 0!important;
         line-height: 0;
-    }
 
-    > a:hover, > a:active {
-        background-color: transparent;
+        &:hover, &:active {
+            background-color: transparent;
+        }
     }
 }
 
@@ -283,7 +286,7 @@ section {
     color: $font-color-light;
 
     .gradient {
-        border-radius: 0.5em;
+        border-radius: $border-radius-big;
         background: radial-gradient(circle at 20% 20%, $gradient-dark-1 35%, $gradient-dark-2 100%);
         box-shadow: $box-shadow-dark;
     }
@@ -294,7 +297,7 @@ section {
     color: $font-color-dark;
 
     .gradient {
-        border-radius: 0.5em;
+        border-radius: $border-radius-big;
         background: radial-gradient(circle at 20% 20%, $gradient-light-1 35%, $gradient-light-2 100%);
         box-shadow: $box-shadow-light;
     }
@@ -328,9 +331,6 @@ section {
 }
 
 
-
-
-
 /*############################*/
 /*      Skill Block           */
 /*############################*/
@@ -356,8 +356,53 @@ section {
 
 
 /*############################*/
+/*      Projects Block        */
+/*############################*/
+.proj-wrp {
+    width: calc(25vw - 6.5em);
+    min-width: 320px;
+    margin: 0px 0.95em 1.9em;
+    padding: 1.6em 1em 1em;
+
+    abbr {
+        color: $font-color-light;
+        background-color: $blue-light;
+        padding: 0.5em 0.5em 0.3em;
+        border-radius: $border-radius-tag;
+    }
+}
+
+.proj-title {
+    font-size: 1.4em;
+    letter-spacing: 0.02em;
+    margin-top: 0em;
+    margin-bottom: 1.2em;
+}
+
+.proj-link {
+    color: $font-color-light;
+    background-color: $blue;
+    padding: 0.4em 0.75em 0.3em;
+    border-radius: $border-radius-link;
+    margin: 0 0.1em;
+
+    &:hover, &:active {
+        border-radius: $border-radius-link;
+        background-color: $blue-light;
+        transition: 0.7s;
+    }
+}
+
+.proj-desc {
+    margin: 1.4em 1.2em 1em 1.5em;
+    line-height: 1.4em;
+}
+
+
+/*############################*/
 /*      Ref Block             */
 /*############################*/
+/*
 .ref-wrp {
     width: calc(30vw - 6.5em);
     min-width: 320px;
@@ -367,14 +412,14 @@ section {
         color: $font-color-light;
         background-color: $blue;
         padding: 0.45em 0.75em;
-        border-radius: 0.3em;
+        border-radius: $border-radius-tag;
         font-size: small;
-    }
 
-    .ref-contact:active, 
-    .ref-contact:hover {
-        background-color: $blue-light;
-        transition: 0.7s;
+        &:active, 
+        &:hover {
+            background-color: $blue-light;
+            transition: 0.7s;
+        }
     }
 }
 
@@ -428,6 +473,7 @@ section {
     margin-top: 0em;
     margin-bottom: 0.6em;
 }
+*/
 
 
 /*############################*/
@@ -510,13 +556,13 @@ section {
 }
 
 .success {
-    border-radius: 0.5em;
+    border-radius: $border-radius-big;
     background: radial-gradient(circle at 20% 20%, $gradient-success-1 35%, $gradient-success-2 100%);
     box-shadow: $box-shadow-light;
 }
 
 .warning {
-    border-radius: 0.5em;
+    border-radius: $border-radius-big;
     background: radial-gradient(circle at 20% 20%, $gradient-warning-1 35%, $gradient-warning-2 100%);
     box-shadow: $box-shadow-light;
 }

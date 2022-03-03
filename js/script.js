@@ -58,7 +58,7 @@ function animateContent() {
     const welcomeElem = document.getElementById('welcome-box');
     const headlineElems = document.getElementsByTagName('h1');
     const skillWrpElems = document.getElementsByClassName('skill-wrp');
-    const projectsWrpElems = document.getElementsByClassName('projects-wrp');
+    const projectsWrpElems = document.getElementsByClassName('proj-wrp');
     //const refWrpElems = document.getElementsByClassName('ref-wrp');
     const resumeWrpElems = document.getElementsByClassName('resume-wrp');
     const contactWrpElems = document.getElementsByClassName('contact-wrp');
