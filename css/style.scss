@@ -52,7 +52,7 @@ html {
 
 body {
     color: $font-color-light;
-    font-size: 16px; /* calc(0.7em + 2vw); */
+    font-size: 16px;
     font-family: Poppins, sans-serif;
     background-color: white;
 }
@@ -93,12 +93,37 @@ a {
 }
 
 abbr {
+    color: $font-color-light;
     text-decoration: none!important;
     background-color: $blue-light;
     padding: 0.5em 0.5em 0.3em;
     margin-bottom: 0.3em;
     border-radius: $border-radius-tag;
     display: inline-block;
+}
+
+.button {
+    color: $font-color-light;
+    background-color: $blue;
+    padding: 0.4em 0.75em 0.3em;
+    border-radius: $border-radius-link;
+    margin: 0 0.1em;
+
+    &:hover, &:active {
+        border-radius: $border-radius-link;
+        background-color: $blue-light;
+        transition: 0.7s;
+    }
+}
+
+.social-link {
+    font-size: 2em;
+    padding: 0 0.1em;
+
+    &:hover, &:active {
+        color: $blue-light;
+        transition: 0.5s;
+    }
 }
 
 .flex {
@@ -111,18 +136,6 @@ abbr {
     display: none;
 }
 
-.social-links {
-    font-size: 2em;
-
-    > a {
-        padding: 0 0.1em;
-
-        &:hover, &:active {
-            color: $blue-light;
-            transition: 0.5s;
-        }
-    }
-}
 
 /*############################*/
 /*      Header                */
@@ -134,57 +147,77 @@ header {
     background: radial-gradient(ellipse at bottom, $gradient-stars-1 0%, $gradient-stars-2 100%);
 }
 
-#nav-main {
+#nav {
     font-size: 1.2em;
     width: 100%;
     position: fixed;
     z-index: 10;
     background-color: $nav-bg-color;
+}
 
-    ul {
-        display: flex;
-        overflow: auto;
-        margin: 0;
-        padding: 0.45em 5vw 0.27em; 
-        list-style-type: none;
+.nav__menu {
+    display: flex;
+    overflow: auto;
+    margin: 0;
+    padding: 0.45em 5vw 0.27em; 
+    list-style-type: none;
+}
+
+.nav__item {
+    display: inline-block;
+}
+
+.nav__link {
+    display: inline-block;
+    padding: 0.4em 0.75em 0.3em;
+    margin: 0.1em 0.25em 0.1em;
+
+    &:hover, &:active {
+        border-radius: $border-radius-link;
+        background-color: $blue-light;
+        transition: 0.7s;
     }
 
-    li {
-        display: inline-block;
-    }
-
-    li:last-child {
-        font-size: 1.7em;
-        padding-top: 0.07em;
-        display: none;
-    }
-
-    a {
-        display: inline-block;
-        padding: 0.4em 0.75em 0.3em;
-        margin: 0.1em 0.25em 0.1em;
-
-        &:hover, &:active {
-            border-radius: $border-radius-link;
-            background-color: $blue-light;
-            transition: 0.7s;
-        }
-    }
-
-    .active {
+    &.active {
         border-radius: $border-radius-link;
         background-color: $blue;
         transition: 0.7s;
     }
 
-    .inactive {
+    &.inactive {
         border-radius: $border-radius-link;
         background-color: transparent;
         transition: 0.5s;
     }
 }
 
-#nav-dropdown {
+.nav__logo {
+    flex-grow: 1;
+    display: inline-block;
+    
+    img {
+        height: 1.6em;
+        width: 3.2em;
+        filter: blur(0.5px);
+    }
+
+    > a {
+        padding: 0.2em 0 0!important;
+        line-height: 0;
+
+        &:hover, &:active {
+            background-color: transparent;
+        }
+    }
+}
+
+.nav__toggle {
+    font-size: 1.7em;
+    padding-top: 0.07em;
+    display: none;
+}
+
+#nav-mobile {
     font-size: 1.2em;
     position: fixed;
     top: 2.85em;
@@ -205,28 +238,9 @@ header {
         width: 100%;
         box-sizing: border-box;
 
-        &:hover, &:active, .active {
+        &:hover, &:active, &.active {
             background-color: $blue;
             transition: 0.7s;
-        }
-    }
-}
-
-#nav-logo {
-    flex-grow: 1;
-
-    img {
-        height: 1.6em;
-        width: 3.2em;
-        filter: blur(0.5px);
-    }
-
-    > a {
-        padding: 0.2em 0 0!important;
-        line-height: 0;
-
-        &:hover, &:active {
-            background-color: transparent;
         }
     }
 }
@@ -235,19 +249,19 @@ header {
 /*############################*/
 /*      Welcome Block         */
 /*############################*/
-#welcome-wrp {
+#welcome-container {
     font-size: 1em;
     text-align: left;
 }
 
-#welcome-box {
+#welcome {
     display: inline-block;
     max-width: 700px;
     margin: 5em 5vw;
     text-align: center;
 }
 
-#welcome-foto {
+#welcome__foto {
     position: relative;
     top: 80px;
     width: 200px;
@@ -256,7 +270,7 @@ header {
     border-radius: 100%;
 }
 
-#welcome-msg {
+#welcome__text {
     text-align: left;
     border-radius: $border-radius-big;
     padding: 1.4em;
@@ -282,29 +296,31 @@ section {
     text-align: center;
 }
 
-.section-dark {
-    background-color: $blue-dark;
-    color: $font-color-light;
-
-    .gradient {
-        border-radius: $border-radius-big;
-        background: radial-gradient(circle at 20% 20%, $gradient-dark-1 35%, $gradient-dark-2 100%);
-        box-shadow: $box-shadow-dark;
+.section {
+    &--dark {
+        background-color: $blue-dark;
+        color: $font-color-light;
+    
+        .gradient {
+            border-radius: $border-radius-big;
+            background: radial-gradient(circle at 20% 20%, $gradient-dark-1 35%, $gradient-dark-2 100%);
+            box-shadow: $box-shadow-dark;
+        }
+    }
+    
+    &--light {
+        background-color:$blue-grey;
+        color: $font-color-dark;
+    
+        .gradient {
+            border-radius: $border-radius-big;
+            background: radial-gradient(circle at 20% 20%, $gradient-light-1 35%, $gradient-light-2 100%);
+            box-shadow: $box-shadow-light;
+        }
     }
 }
 
-.section-light {
-    background-color:$blue-grey;
-    color: $font-color-dark;
-
-    .gradient {
-        border-radius: $border-radius-big;
-        background: radial-gradient(circle at 20% 20%, $gradient-light-1 35%, $gradient-light-2 100%);
-        box-shadow: $box-shadow-light;
-    }
-}
-
-.section-bg-rocket {
+.section__bg-left {
     overflow:hidden;
     position: absolute;
     text-align: left;
@@ -317,7 +333,7 @@ section {
     }
 }
 
-.section-bg-envelope {
+.section__bg-right {
     overflow:hidden;
     position: absolute;
     text-align: right;
@@ -335,7 +351,7 @@ section {
 /*############################*/
 /*      Skill Block           */
 /*############################*/
-.skill-wrp {
+.skill {
     width: calc(25vw - 6.5em);
     min-width: 310px;
     padding: 0.6em;
@@ -349,52 +365,31 @@ section {
     > p {
         margin: 1.7em 1em 1em;
     }
-}
 
-.skill-icon {
-    font-size: 4em;
+    > i {
+        font-size: 4em;
+    }
 }
 
 
 /*############################*/
 /*      Projects Block        */
 /*############################*/
-.proj-wrp {
+.proj {
     width: calc(25vw - 6.5em);
     min-width: 320px;
     margin: 0px 0.95em 1.9em;
     padding: 1.6em 1em 1em;
-
-    abbr {
-        color: $font-color-light;
-        background-color: $blue-light;
-        padding: 0.5em 0.5em 0.3em;
-        border-radius: $border-radius-tag;
-    }
 }
 
-.proj-title {
+.proj__title {
     font-size: 1.4em;
     letter-spacing: 0.02em;
     margin-top: 0em;
     margin-bottom: 1.2em;
 }
 
-.proj-link {
-    color: $font-color-light;
-    background-color: $blue;
-    padding: 0.4em 0.75em 0.3em;
-    border-radius: $border-radius-link;
-    margin: 0 0.1em;
-
-    &:hover, &:active {
-        border-radius: $border-radius-link;
-        background-color: $blue-light;
-        transition: 0.7s;
-    }
-}
-
-.proj-desc {
+.proj__desc {
     margin: 1.4em 1.2em 1em 1.5em;
     line-height: 1.4em;
 }
@@ -480,7 +475,7 @@ section {
 /*############################*/
 /*      Resume Block          */
 /*############################*/
-.resume-wrp {
+.resume {
     width: 20%;
     min-width: 342px;
     text-align: left;
@@ -491,7 +486,7 @@ section {
         margin-top: 0;
     }
 
-    ul {
+    > ul {
         padding-left: 1.4em;
         border-left: 1px solid $blue-light;
         margin: 0 0 0 0.45em;
@@ -525,18 +520,18 @@ section {
     }
 }
 
-.resume-position {
+.resume__position {
     font-size: 1.1em;
     margin-top: 0.3em;
     margin-bottom: 0.13em;
 }
 
-.resume-company {
+.resume__company {
     font-size: 0.9em;
     margin: 0;
 }
 
-.resume-date {
+.resume__date {
     font-size: 1em;
     line-height: 1em;
     letter-spacing: 0.05em;
@@ -545,31 +540,16 @@ section {
 }
 
 
-/* Contact Form */
-.contact-wrp, .message {
+/*############################*/
+/*      Contact Form          */
+/*############################*/
+#contact-form {
     padding: 1.9em;
     max-width:500px;
     margin: 0 auto;
 }
 
-.message {
-    margin-top: 2em;
-}
-
-.success {
-    border-radius: $border-radius-big;
-    background: radial-gradient(circle at 20% 20%, $gradient-success-1 35%, $gradient-success-2 100%);
-    box-shadow: $box-shadow-light;
-}
-
-.warning {
-    border-radius: $border-radius-big;
-    background: radial-gradient(circle at 20% 20%, $gradient-warning-1 35%, $gradient-warning-2 100%);
-    box-shadow: $box-shadow-light;
-}
-
-input,
-textarea {
+input, textarea {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -601,6 +581,28 @@ textarea {
 
 
 /*############################*/
+/*      Message Box           */
+/*############################*/
+.message {
+    padding: 1.9em;
+    max-width:500px;
+    margin: 2em auto 0;
+}
+
+.message--success {
+    border-radius: $border-radius-big;
+    background: radial-gradient(circle at 20% 20%, $gradient-success-1 35%, $gradient-success-2 100%);
+    box-shadow: $box-shadow-light;
+}
+
+.message--warning {
+    border-radius: $border-radius-big;
+    background: radial-gradient(circle at 20% 20%, $gradient-warning-1 35%, $gradient-warning-2 100%);
+    box-shadow: $box-shadow-light;
+}
+
+
+/*############################*/
 /*      Footer Block          */
 /*############################*/
 footer {
@@ -619,7 +621,7 @@ footer {
 /*      Media Querys          */
 /*############################*/
 @media only screen and (max-width: 480px) {
-    .section-bg-rocket {
+    .section__bg-left {
         left: 2em;
         margin-top: -1em;
 
@@ -631,19 +633,19 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-    #welcome-foto {
+    #welcome__foto {
         top: 50px;
     }
 
-    #nav-main li + li {
+    .nav__menu li + li {
         display: none;
     }
 
-    #nav-main li:last-child {
+    .nav__menu li:last-child {
         display: block;
     }
 
-    .section-bg-rocket {
+    .section__bg-left {
         display:none;
     }
 }
@@ -651,13 +653,13 @@ footer {
 @media only screen and (max-width: 1024px) {}
 
 @media only screen and (max-width: 1200px) {
-    .section-bg-envelope {
+    .section__bg-right {
         display:none;
     }
 }
 
 @media only screen and (max-width: 1400px) {
-    .ref-photo {
+    .ref__photo {
         right: -25%;
     }
 }

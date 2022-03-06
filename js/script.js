@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 /*############################*/
 function animateNavigation() {
     //Dropdown Elements
-    const navDropdownElem = document.getElementById('nav-dropdown');
-    const navDropdownOpenElem = document.getElementById('nav-dropdown-open');
-    const navDropdownCloseElem = document.getElementById('nav-dropdown-close');
+    const navDropdownElem = document.getElementById('nav-mobile');
+    const navDropdownOpenElem = document.getElementById('nav__toggle--open');
+    const navDropdownCloseElem = document.getElementById('nav__toggle--close');
     const sharedClasses = ['animate__animated', 'animate__faster'];
 
     //Open Dropdown on icon click
@@ -55,13 +55,13 @@ function animateNavigation() {
 /*      Content Animations    */
 /*############################*/
 function animateContent() {
-    const welcomeElem = document.getElementById('welcome-box');
+    const welcomeElem = document.getElementById('welcome');
     const headlineElems = document.getElementsByTagName('h1');
-    const skillWrpElems = document.getElementsByClassName('skill-wrp');
-    const projectsWrpElems = document.getElementsByClassName('proj-wrp');
-    //const refWrpElems = document.getElementsByClassName('ref-wrp');
-    const resumeWrpElems = document.getElementsByClassName('resume-wrp');
-    const contactWrpElems = document.getElementsByClassName('contact-wrp');
+    const skillWrpElems = document.getElementsByClassName('skill');
+    const projectsWrpElems = document.getElementsByClassName('proj');
+    //const refWrpElems = document.getElementsByClassName('ref');
+    const resumeWrpElems = document.getElementsByClassName('resume');
+    const contactFormElem = document.getElementById('contact-form');
 
     const sharedClasses = ['animate__animated', 'animate__slow'];
     const eleInfos = [
@@ -86,7 +86,7 @@ function animateContent() {
             animationClasses: [...sharedClasses, 'animate__bounceIn'],
         },
         {
-            domObjs: contactWrpElems,
+            domObjs: [contactFormElem],
             animationClasses: [...sharedClasses, 'animate__flipInX'],
         },
     ];
@@ -249,7 +249,7 @@ function submitContactForm() {
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 let responseArr = JSON.parse(this.responseText);
-                let contactMsgBox = document.getElementById('contact-message');
+                let contactMsgBox = document.getElementById('message-wrp');
                 if (responseArr.success === true) form.reset();
 
                 contactMsgBox.innerHTML = '';
@@ -266,7 +266,7 @@ function submitContactForm() {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("name=" + name + "&email=" + email + "&message=" + message);
     } catch {
-        document.getElementById('contact-message').innerHTML = 
-        '<div class="message warning">Es gibt momentan ein serverseitiges Problem. Bitte benutzen sie eine alternative Kontaktmöglichkeit.</div>';
+        document.getElementById('message-wrp').innerHTML = 
+        '<div class="message message--warning">Es gibt momentan ein serverseitiges Problem. Bitte benutzen sie eine alternative Kontaktmöglichkeit.</div>';
     }
 }
