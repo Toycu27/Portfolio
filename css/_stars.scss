@@ -1,4 +1,11 @@
 /*############################*/
+/*      Variables             */
+/*############################*/
+$gradient-stars-1: #1b2e42;
+$gradient-stars-2: #0a0c0f;
+
+
+/*############################*/
 /*      Animations            */
 /*############################*/
 @keyframes animationStarsA {
@@ -23,11 +30,6 @@
 /*############################*/
 /*      Stars Container       */
 /*############################*/
-#stars-cont{
-    height: 100%;
-    width: 100%;
-}
-
 @mixin starsTmp ($size, $speed, $animation) {
     width: $size;
     height: $size;
@@ -35,26 +37,26 @@
     animation: $animation $speed linear infinite;
 }
 
-#stars1A {
+#stars__1a {
     @include starsTmp(1px, 50s, animationStarsA)
 }
 
-#stars1B {
+#stars__1b {
     @include starsTmp(1px, 50s, animationStarsB)
 }
 
-#stars2A {
+#stars__2a {
     @include starsTmp(2px, 100s, animationStarsA)
 }
 
-#stars2B {
+#stars__2b {
     @include starsTmp(2px, 100s, animationStarsB)
 }
 
-#stars3A {
+#stars__3a {
     @include starsTmp(3px, 150s, animationStarsA)
 }
 
-#stars3B {
+#stars__3b {
     @include starsTmp(3px, 150s, animationStarsB)
 }

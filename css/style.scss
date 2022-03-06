@@ -19,12 +19,9 @@ $blue-light: rgb(55, 160, 220);
 $blue: rgb(55, 125, 220);
 $blue-dark: rgb(95, 115, 155);
 $blue-grey: rgb(205, 215, 225);
-$grey: grey;
 
 $blockquote-bg-color: rgba(40, 132, 186, 0.2);
 
-$gradient-stars-1: #1b2e42;
-$gradient-stars-2: #0a0c0f;
 $gradient-dark-1: rgb(70, 104, 170);
 $gradient-dark-2: rgb(40, 70, 128);
 $gradient-light-1: rgb(170, 195, 220);
@@ -37,9 +34,16 @@ $gradient-success-2: rgb(160, 204, 160);
 $box-shadow-dark: 0.75em 0.75em 1em 0 rgba(0, 0, 0, 0.4);
 $box-shadow-light: 0.7em 0.7em 1em 0 rgba(0, 0, 0, 0.2);
 
-$border-radius-tag: 0.8em;
 $border-radius-link: 0.3em;
-$border-radius-big: 0.5em;
+$border-radius-default: 0.5em;
+
+
+/*############################*/
+/*      Utility               */
+/*############################*/
+.hidden {
+    display: none;
+}
 
 
 /*############################*/
@@ -55,6 +59,11 @@ body {
     font-size: 16px;
     font-family: Poppins, sans-serif;
     background-color: white;
+}
+
+header {
+    display: block;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -98,10 +107,14 @@ abbr {
     background-color: $blue-light;
     padding: 0.5em 0.5em 0.3em;
     margin-bottom: 0.3em;
-    border-radius: $border-radius-tag;
+    border-radius: 0.8em;
     display: inline-block;
 }
 
+
+/*############################*/
+/*      Buttons & Links       */
+/*############################*/
 .button {
     color: $font-color-light;
     background-color: $blue;
@@ -110,9 +123,14 @@ abbr {
     margin: 0 0.1em;
 
     &:hover, &:active {
-        border-radius: $border-radius-link;
         background-color: $blue-light;
         transition: 0.7s;
+    }
+
+    &--large {
+        font-size: 1.2em;
+        padding: 1em 0.6em;
+        margin: 0;
     }
 }
 
@@ -126,27 +144,126 @@ abbr {
     }
 }
 
-.flex {
+
+/*############################*/
+/*      Message Box           */
+/*############################*/
+.message {
+    padding: 1.9em;
+    width: 500px;
+    margin: 2em auto 0;
+    border-radius: $border-radius-default;
+    box-shadow: $box-shadow-light;
+
+    &--success {
+        background: radial-gradient(circle at 20% 20%, $gradient-success-1 35%, $gradient-success-2 100%);
+    }
+    
+    &--warning {
+        background: radial-gradient(circle at 20% 20%, $gradient-warning-1 35%, $gradient-warning-2 100%);
+    }
+}
+
+
+/*############################*/
+/*      Flex                  */
+/*############################*/
+.flex-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
+
+    &--left {
+        justify-content: flex-start;
+    }
 }
 
-.hidden {
-    display: none;
+.flex__item {
+    box-sizing: border-box;
+    min-width: 360px;
+    margin: 0px 1em 2em;
+
+    &--grow {
+        flex-grow: 1;
+    }
 }
 
 
 /*############################*/
-/*      Header                */
+/*      Sections              */
 /*############################*/
-header {
-    display: block;
-    min-height: 100vh;
-    background-size: cover;
-    background: radial-gradient(ellipse at bottom, $gradient-stars-1 0%, $gradient-stars-2 100%);
+section {
+    font-size: 1em;
+    padding: 2.25em 5vw 4.75em;
+    text-align: center;
 }
 
+.section {
+    &--dark {
+        background-color: $blue-dark;
+        color: $font-color-light;
+    
+    }
+    
+    &--light {
+        background-color:$blue-grey;
+        color: $font-color-dark;
+
+    }
+}
+
+.gradient {
+    &--dark {
+        border-radius: $border-radius-default;
+        background: radial-gradient(circle at 20% 20%, $gradient-dark-1 35%, $gradient-dark-2 100%);
+        box-shadow: $box-shadow-dark;
+    }
+    
+    &--light {
+        border-radius: $border-radius-default;
+        background: radial-gradient(circle at 20% 20%, $gradient-light-1 35%, $gradient-light-2 100%);
+        box-shadow: $box-shadow-light;
+    }
+
+    &--stars {
+        background: radial-gradient(ellipse at bottom, $gradient-stars-1 0%, $gradient-stars-2 100%);
+    }
+}
+
+.section__bg {
+    overflow:hidden;
+    position: absolute;
+    color: rgba($blue-dark, 0.1);
+
+    > i {
+        font-size: 35em;
+    }
+
+    &--left {
+        text-align: left;
+        left: 1em;
+    
+        > i {
+            transform: rotate(90deg);
+        }
+    }
+    
+    &--right {
+        text-align: right;
+        right: 2em;
+        
+        > i {
+            transform: rotate(5deg);
+        }
+    }
+}
+
+
+/*############################*/
+/*      Navigation            */
+/*############################*/
 #nav {
     font-size: 1.2em;
     width: 100%;
@@ -156,7 +273,6 @@ header {
 }
 
 .nav__menu {
-    display: flex;
     overflow: auto;
     margin: 0;
     padding: 0.45em 5vw 0.27em; 
@@ -171,21 +287,19 @@ header {
     display: inline-block;
     padding: 0.4em 0.75em 0.3em;
     margin: 0.1em 0.25em 0.1em;
+    border-radius: $border-radius-link;
 
     &:hover, &:active {
-        border-radius: $border-radius-link;
-        background-color: $blue-light;
+        background-color: $blue-light!important;
         transition: 0.7s;
     }
 
     &.active {
-        border-radius: $border-radius-link;
         background-color: $blue;
         transition: 0.7s;
     }
 
     &.inactive {
-        border-radius: $border-radius-link;
         background-color: transparent;
         transition: 0.5s;
     }
@@ -251,13 +365,11 @@ header {
 /*############################*/
 #welcome-container {
     font-size: 1em;
-    text-align: left;
 }
 
 #welcome {
     display: inline-block;
-    max-width: 700px;
-    margin: 5em 5vw;
+    width: 700px;
     text-align: center;
 }
 
@@ -272,7 +384,7 @@ header {
 
 #welcome__text {
     text-align: left;
-    border-radius: $border-radius-big;
+    border-radius: $border-radius-default;
     padding: 1.4em;
     background-color: $nav-bg-color;
     box-shadow: $box-shadow-dark;
@@ -288,74 +400,11 @@ header {
 
 
 /*############################*/
-/*      Sections              */
-/*############################*/
-section {
-    font-size: 1em;
-    padding: 2.25em 5vw 4.75em;
-    text-align: center;
-}
-
-.section {
-    &--dark {
-        background-color: $blue-dark;
-        color: $font-color-light;
-    
-        .gradient {
-            border-radius: $border-radius-big;
-            background: radial-gradient(circle at 20% 20%, $gradient-dark-1 35%, $gradient-dark-2 100%);
-            box-shadow: $box-shadow-dark;
-        }
-    }
-    
-    &--light {
-        background-color:$blue-grey;
-        color: $font-color-dark;
-    
-        .gradient {
-            border-radius: $border-radius-big;
-            background: radial-gradient(circle at 20% 20%, $gradient-light-1 35%, $gradient-light-2 100%);
-            box-shadow: $box-shadow-light;
-        }
-    }
-}
-
-.section__bg-left {
-    overflow:hidden;
-    position: absolute;
-    text-align: left;
-    left: 1em;
-    color: rgba($blue-dark, 0.1);
-
-    > i {
-        font-size: 35em;
-        transform: rotate(90deg);
-    }
-}
-
-.section__bg-right {
-    overflow:hidden;
-    position: absolute;
-    text-align: right;
-    right: 2em;
-    width: 95vw;
-    color: rgba($blue-dark, 0.1);
-
-    > i {
-        font-size: 35em;
-        transform: rotate(5deg);
-    }
-}
-
-
-/*############################*/
 /*      Skill Block           */
 /*############################*/
 .skill {
-    width: calc(25vw - 6.5em);
-    min-width: 310px;
+    width: calc(24vw - 2em - 10vw / 4);
     padding: 0.6em;
-    margin: 0px 0.95em 1.9em;
 
     > h2 {
         margin-top: 0.4em;
@@ -376,9 +425,7 @@ section {
 /*      Projects Block        */
 /*############################*/
 .proj {
-    width: calc(25vw - 6.5em);
-    min-width: 320px;
-    margin: 0px 0.95em 1.9em;
+    width: calc(26vw - 2em - 10vw / 4);
     padding: 1.6em 1em 1em;
 }
 
@@ -396,91 +443,12 @@ section {
 
 
 /*############################*/
-/*      Ref Block             */
-/*############################*/
-/*
-.ref-wrp {
-    width: calc(30vw - 6.5em);
-    min-width: 320px;
-    margin: 0px 0.95em 1.9em;
-
-    .ref-contact {
-        color: $font-color-light;
-        background-color: $blue;
-        padding: 0.45em 0.75em;
-        border-radius: $border-radius-tag;
-        font-size: small;
-
-        &:active, 
-        &:hover {
-            background-color: $blue-light;
-            transition: 0.7s;
-        }
-    }
-}
-
-.ref-photo {
-    position: relative;
-    top: 65px;
-    right: -15%;
-    margin-top: -65px;
-    width: 120px;
-    height:120px;
-    object-fit: cover;
-    border-radius: 100%;
-    z-index: 5;
-    box-shadow: 0px 0px 7px $grey;
-}
-
-.ref-info {
-    position:relative;
-    text-align: left;
-    border-radius: $border-radius-big;
-    padding: 1em;
-
-    > blockquote {
-        margin: 1.4em 1.2em 0 1.5em;
-    }
-
-    &::before,
-    &::after {
-        font-size: 8em;
-        position: absolute;
-        line-height: 0;
-        color: $blockquote-bg-color;
-    }
-
-    &::before {
-        content: "„";
-        bottom: 4.2rem;
-        left: 0.7rem;
-    }
-
-    &::after {
-        content: "“";
-        top: 8.5rem;
-        right: 0.4rem;
-    }
-}
-
-.ref-name {
-    font-size: 1.4em;
-    letter-spacing: 0.02em;
-    margin-top: 0em;
-    margin-bottom: 0.6em;
-}
-*/
-
-
-/*############################*/
 /*      Resume Block          */
 /*############################*/
 .resume {
-    width: 20%;
-    min-width: 342px;
+    width: calc(24vw - 2em - 10vw / 4);
     text-align: left;
     padding: 1.25em;
-    margin: 0px 0.95em 1.9em;
 
     > h2 {
         margin-top: 0;
@@ -541,12 +509,11 @@ section {
 
 
 /*############################*/
-/*      Contact Form          */
+/*      Contact Block         */
 /*############################*/
 #contact-form {
+    width: 600px;
     padding: 1.9em;
-    max-width:500px;
-    margin: 0 auto;
 }
 
 input, textarea {
@@ -556,7 +523,7 @@ input, textarea {
     padding:0.6em;
     margin: 0 auto 1.2em;
     border: 2px solid transparent;
-    border-radius: $border-radius-big;
+    border-radius: $border-radius-default;
     outline: none;
     background-color: white;
 
@@ -564,41 +531,6 @@ input, textarea {
         border: 2px solid $blue-light;
         transition: 0.5s;
     }
-
-    &[type="button"] {
-        color: white;
-        background-color: $blue;
-        padding: 1em 0.6em;
-        margin-bottom: 0;
-        font-size: 1.2em;
-
-        &:hover {
-            background-color: $blue-light;
-            border: 2px solid $blue-light;
-        }
-    }
-}
-
-
-/*############################*/
-/*      Message Box           */
-/*############################*/
-.message {
-    padding: 1.9em;
-    max-width:500px;
-    margin: 2em auto 0;
-}
-
-.message--success {
-    border-radius: $border-radius-big;
-    background: radial-gradient(circle at 20% 20%, $gradient-success-1 35%, $gradient-success-2 100%);
-    box-shadow: $box-shadow-light;
-}
-
-.message--warning {
-    border-radius: $border-radius-big;
-    background: radial-gradient(circle at 20% 20%, $gradient-warning-1 35%, $gradient-warning-2 100%);
-    box-shadow: $box-shadow-light;
 }
 
 
@@ -621,7 +553,7 @@ footer {
 /*      Media Querys          */
 /*############################*/
 @media only screen and (max-width: 480px) {
-    .section__bg-left {
+    .section__bg--left {
         left: 2em;
         margin-top: -1em;
 
@@ -645,7 +577,7 @@ footer {
         display: block;
     }
 
-    .section__bg-left {
+    .section__bg--left {
         display:none;
     }
 }
@@ -653,15 +585,11 @@ footer {
 @media only screen and (max-width: 1024px) {}
 
 @media only screen and (max-width: 1200px) {
-    .section__bg-right {
+    .section__bg--right {
         display:none;
     }
 }
 
-@media only screen and (max-width: 1400px) {
-    .ref__photo {
-        right: -25%;
-    }
-}
+@media only screen and (max-width: 1400px) {}
 
 @media only screen and (min-width: 1401px) {}

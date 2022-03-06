@@ -33,16 +33,15 @@
 </head>
 
 <body>
-    <header>
+    <header class="gradient--stars">
         <nav id="nav">
-            <ul class="nav__menu">
-                <li class="nav__item nav__logo"><a class="nav__link" href="index.html"><img src="logo.svg" alt="Webseiten Logo" /></a></li>
-                <li class="nav__item"><a class="nav__link" id="link-skills" href="#skills">Skills</a></li>
-                <li class="nav__item"><a class="nav__link" id="link-projects" href="#projects">Projekte</a></li>
-                <!--<li class="nav__item"><a id="link-refs" href="#refs">Referenzen</a></li>-->
-                <li class="nav__item"><a class="nav__link" id="link-resume" href="#resume">Lebenslauf</a></li>
-                <li class="nav__item"><a class="nav__link" id="link-contact" href="#contact">Kontakt</a></li>
-                <li class="nav__item nav__toggle">
+            <ul class="nav__menu flex-container">
+                <li class="nav__item nav__logo flex__item--grow"><a class="nav__link" href="index.html"><img src="logo.svg" alt="Webseiten Logo" /></a></li>
+                <li class="nav__item "><a class="nav__link" id="link-skills" href="#skills">Skills</a></li>
+                <li class="nav__item "><a class="nav__link" id="link-projects" href="#projects">Projekte</a></li>
+                <li class="nav__item "><a class="nav__link" id="link-resume" href="#resume">Lebenslauf</a></li>
+                <li class="nav__item "><a class="nav__link" id="link-contact" href="#contact">Kontakt</a></li>
+                <li class="nav__item nav__toggle ">
                     <i id="nav__toggle--open" class="lni lni-list"></i>
                     <i id="nav__toggle--close" class="hidden lni lni-close"></i>
                 </li>
@@ -52,44 +51,45 @@
             <ul>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projekte</a></li>
-                <!--<li><a href="#refs">Referenzen</a></li>-->
                 <li><a href="#resume">Lebenslauf</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
 
-        <div id="stars-cont">
-            <div id='stars1A'></div>
-            <div id='stars2A'></div>
-            <div id='stars3A'></div>
-            <div id='stars1B'></div>
-            <div id='stars2B'></div>
-            <div id='stars3B'></div>
+        <div id="stars">
+            <div id='stars__1a'></div>
+            <div id='stars__1b'></div>
+            <div id='stars__2a'></div>
+            <div id='stars__2b'></div>
+            <div id='stars__3a'></div>
+            <div id='stars__3b'></div>
         </div>
 
         <section id="welcome-container">
-            <div id="welcome">
-                <img id="welcome__foto" src="img/foto.jpg" alt="Porträtfoto von Onur Toycu" />
-                <div id="welcome__text">
-                    <div class="social-link-wrp">
-                        <a class="social-link" href="https://www.linkedin.com/in/toycu" target="_blank" aria-label="LinkedIn Profil" rel="noopener noreferrer">
-                            <i class="lni lni-linkedin-original"></i>
-                        </a>
-                        <a class="social-link" href="https://github.com/Toycu27" target="_blank" aria-label="Github Profil" rel="noopener noreferrer">
-                            <i class="lni lni-github-original"></i>
-                        </a>
+            <div id="welcome-wrp" class="flex-container flex-container--left">
+                <div id="welcome" class="flex__item">
+                    <img id="welcome__foto" src="img/foto.jpg" alt="Porträtfoto von Onur Toycu" />
+                    <div id="welcome__text">
+                        <div class="social-link-wrp">
+                            <a class="social-link" href="https://www.linkedin.com/in/toycu" target="_blank" aria-label="LinkedIn Profil" rel="noopener noreferrer">
+                                <i class="lni lni-linkedin-original"></i>
+                            </a>
+                            <a class="social-link" href="https://github.com/Toycu27" target="_blank" aria-label="Github Profil" rel="noopener noreferrer">
+                                <i class="lni lni-github-original"></i>
+                            </a>
+                        </div>
+                        <p>Mein Name ist Onur Toycu</p>
+                        <p>
+                            Full-Stack Entwickler aus Mönchengladbach.<br />
+                            Ich unterstütze ihre Projekte und Softwarelösungen in Planung, Entwicklung und Wartung.
+                        </p>
+                        <p>
+                            Wenn sie mein Profil ansprechend finden und an einer Zusammenarbeit interessiert sind, 
+                            nutzen sie doch gerne mein <a href="#contact">Kontaktformular</a> oder Kontaktieren sie mich auf 
+                            <a href="https://www.linkedin.com/in/toycu" target="_blank" aria-label="LinkedIn Profil" rel="noopener noreferrer">LinkedIn</a>. 
+                            Ich kann 8 Jahre Berufserfahrung in der Full-Stack Entwicklung vorweisen.
+                        </p>
                     </div>
-                    <p>Mein Name ist Onur Toycu</p>
-                    <p>
-                        Full-Stack Entwickler aus Mönchengladbach.<br />
-                        Ich unterstütze ihre Projekte und Softwarelösungen in Planung, Entwicklung und Wartung.
-                    </p>
-                    <p>
-                        Wenn sie mein Profil ansprechend finden und an einer Zusammenarbeit interessiert sind, 
-                        nutzen sie doch gerne mein <a href="#contact">Kontaktformular</a> oder Kontaktieren sie mich auf 
-                        <a href="https://www.linkedin.com/in/toycu" target="_blank" aria-label="LinkedIn Profil" rel="noopener noreferrer">LinkedIn</a>. 
-                        Ich kann 8 Jahre Berufserfahrung in der Full-Stack Entwicklung vorweisen.
-                    </p>
                 </div>
             </div>
         </section>
@@ -98,8 +98,8 @@
     <main>
         <section id="skills" class="section--dark">
             <h1>Skills</h1>
-            <div class="skill-wrp flex">
-                <div class="skill gradient">
+            <div class="skill-wrp flex-container">
+                <div class="skill flex__item gradient--dark">
                     <i class="lni lni-code"></i>
                     <h2>Backend Entwicklung</h2>
                     <abbr class="tag" title="Hypertext Preprocessor - Skriptsprache zur Erstellung dynamischer Webseiten.">PHP</abbr>
@@ -108,7 +108,7 @@
                     lege ich im Backend viel Wert auf die Auswahl der passenden Architektur, 
                     Clean Code und eine gute Dokumentation.</p>
                 </div>
-                <div class="skill gradient">
+                <div class="skill flex__item gradient--dark">
                     <i class="lni lni-brush-alt"></i>
                     <h2>Frontend Entwicklung</h2>
                     <abbr class="tag" title="Javascript - Skriptsprache für dynamisches HTML in Webbrowsern.">Javascript</abbr>
@@ -120,7 +120,7 @@
                     lege ich bei der Umsetzung der UX/UI viel Wert auf eine detailgetreue Arbeit.
                     </p>
                 </div>
-                <div class="skill gradient">
+                <div class="skill flex__item gradient--dark">
                     <i class="lni lni-database"></i>
                     <h2>Datenbank Entwicklung</h2>
                     <abbr class="tag" title="MySQL - Weltweit verbreitetstes relationales Datenbanksystem.">MySQL</abbr>
@@ -130,7 +130,7 @@
                     Ich bin in der Lage, ihre Datenbank von der Planung und Erstellung bis zur Fertigstellung der SQL-Querys im Backend zu begleiten.
                     </p>
                 </div>
-                <div class="skill gradient">
+                <div class="skill flex__item gradient--dark">
                     <i class="lni lni-ux"></i>
                     <h2>Software Architektur</h2>
                     <abbr class="tag" title="Representational State Transfer - Paradigma für die Softwarearchitektur von verteilten Systemen.">REST</abbr>
@@ -145,8 +145,8 @@
 
         <section id="projects" class="section--light">
             <h1>Projekte</h1>
-            <div class="proj-wrp flex">
-                <div class="proj gradient">
+            <div class="proj-wrp flex-container">
+                <div class="proj flex__item gradient--light">
                     <div class="proj__infos">
                         <h2 class="proj__title">Portfolio Webseite</h2>
                         <a class="proj__link button" href="https://www.toycu.net" target="_blank">www.toycu.net</a>
@@ -168,7 +168,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="proj gradient">
+                <div class="proj flex__item gradient--light">
                     <div class="proj__infos">
                         <h2 class="proj__title">React Standalone</h2>
                         <a class="proj__link button" href="http://react.toycu.net" target="_blank">react.toycu.net</a>
@@ -190,43 +190,10 @@
             </div>
         </section>
 
-        <!--<section id="refs" class="section-light">
-            <h1>Referenzen</h1>
-            <div class="flex">
-                <div class="ref-wrp">
-                    <img class="ref-photo" src="img/placeholder.jpg" alt="Profilbild von ..." />
-                    <div class="ref-info gradient">
-                        <h2 class="ref-name">Max Mustermann</h2>
-                        <a class="ref-contact" href="https://...de/" target="_blank" rel="noopener noreferrer">...de</a>
-                        <blockquote>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                            sed diam nonumy eirmod et dolore magna aliquyam</blockquote>
-                    </div>
-                </div>
-                <div class="ref-wrp">
-                    <img class="ref-photo" src="img/placeholder.jpg" alt="Profilbild von ..." />
-                    <div class="ref-info gradient">
-                        <h2 class="ref-name">Max Mustermann</h2>
-                        <a class="ref-contact" href="https://...de/" target="_blank" rel="noopener noreferrer">...de</a>
-                        <blockquote>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                            sed diam nonumy eirmod et dolore magna aliquyam</blockquote>
-                    </div>
-                </div>
-                <div class="ref-wrp">
-                    <img class="ref-photo" src="img/placeholder.jpg" alt="Profilbild von ..." />
-                    <div class="ref-info gradient">
-                        <h2 class="ref-name">Max Mustermann</h2>
-                        <a class="ref-contact" href="https://...de/" target="_blank" rel="noopener noreferrer">...de</a>
-                        <blockquote>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                            sed diam nonumy eirmod et dolore magna aliquyam</blockquote>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-
         <section id="resume" class="section--dark">
             <h1>Lebenslauf</h1>
-            <div class="resume-wrp flex">
-                <div class="resume gradient">
+            <div class="resume-wrp flex-container">
+                <div class="resume flex__item gradient--dark">
                     <h2>Berufserfahrung</h2>
                     <ul>
                         <li>
@@ -256,7 +223,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="resume gradient">
+                <div class="resume flex__item gradient--dark">
                     <h2>Schulbildung</h2>
                     <ul>
                         <li>
@@ -285,20 +252,19 @@
         </section>
 
         <section id="contact" class="section--light">
-            <div class="section__bg-left"><i class="lni lni-rocket"></i></div>
-            <div class="section__bg-right"><i class="lni lni-envelope"></i></div>
+            <div class="section__bg section__bg--left"><i class="lni lni-rocket"></i></div>
+            <div class="section__bg section__bg--right"><i class="lni lni-envelope"></i></div>
             <h1>Kontakt</h1>
-            <div>
-            <div id="contact-form" class="gradient">
-                <form name="contact">
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="email" placeholder="E-Mail">
-                    <textarea name="message" rows="6" placeholder="Nachricht"></textarea>
-                    <input type="button" value="Senden" onclick="submitContactForm()">
-                </form>
+            <div class="contact-wrp flex-container">
+                <div id="contact-form" class="flex__item gradient--light">
+                    <form name="contact">
+                        <input type="text" name="name" placeholder="Name" />
+                        <input type="email" name="email" placeholder="E-Mail" />
+                        <textarea name="message" rows="6" placeholder="Nachricht"></textarea>
+                        <input type="button" class="button button--large" value="Senden" onclick="submitContactForm()" />
+                    </form>
+                </div>
             </div>
-            </div>
-
             <div id="message-wrp"></div>
         </section>
     </main>

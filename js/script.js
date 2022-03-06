@@ -59,7 +59,6 @@ function animateContent() {
     const headlineElems = document.getElementsByTagName('h1');
     const skillWrpElems = document.getElementsByClassName('skill');
     const projectsWrpElems = document.getElementsByClassName('proj');
-    //const refWrpElems = document.getElementsByClassName('ref');
     const resumeWrpElems = document.getElementsByClassName('resume');
     const contactFormElem = document.getElementById('contact-form');
 
@@ -77,10 +76,6 @@ function animateContent() {
             domObjs: projectsWrpElems,
             animationClasses: [...sharedClasses, 'animate__flipInX'],
         },
-        /*{
-            domObjs: refWrpElems,
-            animationClasses: [...sharedClasses, 'animate__flipInX'],
-        },*/
         {
             domObjs: resumeWrpElems,
             animationClasses: [...sharedClasses, 'animate__bounceIn'],
@@ -100,10 +95,6 @@ function animateContent() {
             link: document.getElementById('link-projects'),
             wrp: document.getElementById('projects').getElementsByTagName('h1')[0],
         },
-        /*{
-            link: document.getElementById('link-refs'),
-            wrp: document.getElementById('refs').getElementsByTagName('h1')[0],
-        },*/
         {
             link: document.getElementById('link-resume'),
             wrp: document.getElementById('resume').getElementsByTagName('h1')[0],
@@ -168,12 +159,12 @@ function createStarsBackground() {
     const stars1Css = Star.createCssString(stars1);
     const stars2Css = Star.createCssString(stars2);
     const stars3Css = Star.createCssString(stars3);
-    document.getElementById('stars1A').style.boxShadow = stars1Css;
-    document.getElementById('stars1B').style.boxShadow = stars1Css;
-    document.getElementById('stars2A').style.boxShadow = stars2Css;
-    document.getElementById('stars2B').style.boxShadow = stars2Css;
-    document.getElementById('stars3A').style.boxShadow = stars3Css;
-    document.getElementById('stars3B').style.boxShadow = stars3Css;
+    document.getElementById('stars__1a').style.boxShadow = stars1Css;
+    document.getElementById('stars__1b').style.boxShadow = stars1Css;
+    document.getElementById('stars__2a').style.boxShadow = stars2Css;
+    document.getElementById('stars__2b').style.boxShadow = stars2Css;
+    document.getElementById('stars__3a').style.boxShadow = stars3Css;
+    document.getElementById('stars__3b').style.boxShadow = stars3Css;
 }
 
 /**
