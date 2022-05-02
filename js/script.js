@@ -258,6 +258,6 @@ function submitContactForm() {
         xhttp.send("name=" + name + "&email=" + email + "&message=" + message);
     } catch {
         document.getElementById('message-wrp').innerHTML = 
-        '<div class="message message--warning">Es gibt momentan ein serverseitiges Problem. Bitte benutzen sie eine alternative Kontaktmöglichkeit.</div>';
-    }
+        '<div class="flex__item message message--warning">Es gibt momentan ein serverseitiges Problem. Bitte benutzen sie eine alternative Kontaktmöglichkeit.</div>';
+    } 
 }

@@ -42,17 +42,17 @@ if ($_POST) {
 function validate(Array &$response, String $name, String $email, String $message):bool {
     if (strlen($name) < 3) {
         $response['messages']['warning'][] 
-        = '<div class="message message--warning">Bitte geben sie einen Namen an.</div>';
+        = '<div class="flex__item message message--warning">Bitte geben sie einen Namen an.</div>';
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $response['messages']['warning'][] 
-        = '<div class="message message--warning">Bitte geben sie eine gültige E-Mail Adresse an.</div>';
+        = '<div class="flex__item message message--warning">Bitte geben sie eine gültige E-Mail Adresse an.</div>';
     }
 
     if (strlen($message) < 3) {
         $response['messages']['warning'][] 
-        = '<div class="message message--warning">Bitte geben sie eine Nachricht ein.</div>';
+        = '<div class="flex__item message message--warning">Bitte geben sie eine Nachricht ein.</div>';
     }
 
     if (count($response['messages']['warning'])) {
@@ -81,10 +81,10 @@ function submit(Array &$response, String $name, String $email, String $message):
 
     if(mail("webmaster@toycu.net", $name, $message, $headers)) {
         $response['messages']['success'][] 
-        = '<div class="message message--success">Vielen Dank ihre Nachricht wurde erfolgreich verschickt.</div>';
+        = '<div class="flex__item message message--success">Vielen Dank ihre Nachricht wurde erfolgreich verschickt.</div>';
     } else {
         $response['messages']['warning'][] 
-        = '<div class="message message--warning">Es gibt ein Mailserver Problem. Bitte benutzen sie eine alternative Kontaktmöglichkeit.</div>';
+        = '<div class="flex__item message message--warning">Es gibt ein Mailserver Problem. Bitte benutzen sie eine alternative Kontaktmöglichkeit.</div>';
     }
 
     if (count($response['messages']['warning'])) {

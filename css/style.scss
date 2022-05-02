@@ -553,6 +553,10 @@ footer {
 /*      Media Querys          */
 /*############################*/
 @media only screen and (max-width: 480px) {
+    section {
+        padding: 2.25em 0vw 4.75em;
+    }
+
     .section__bg--left {
         left: 2em;
         margin-top: -1em;
