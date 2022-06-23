@@ -303,12 +303,13 @@ section {
         background-color: transparent;
         transition: 0.5s;
     }
+
 }
 
 .nav__logo {
     flex-grow: 1;
     display: inline-block;
-    
+
     img {
         height: 1.6em;
         width: 3.2em;
@@ -320,7 +321,7 @@ section {
         line-height: 0;
 
         &:hover, &:active {
-            background-color: transparent;
+            background-color: transparent!important;
         }
     }
 }
