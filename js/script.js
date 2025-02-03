@@ -58,7 +58,7 @@ function animateContent() {
     const welcomeElem = document.getElementById('welcome');
     const headlineElems = document.getElementsByTagName('h1');
     const skillWrpElems = document.getElementsByClassName('skill');
-    const projectsWrpElems = document.getElementsByClassName('proj');
+    //const projectsWrpElems = document.getElementsByClassName('proj');
     const resumeWrpElems = document.getElementsByClassName('resume');
     const contactFormElem = document.getElementById('contact-form');
 
@@ -72,10 +72,12 @@ function animateContent() {
             domObjs: skillWrpElems,
             animationClasses: [...sharedClasses, 'animate__fadeInLeft'],
         },
+        /*
         {
             domObjs: projectsWrpElems,
             animationClasses: [...sharedClasses, 'animate__flipInX'],
         },
+        */
         {
             domObjs: resumeWrpElems,
             animationClasses: [...sharedClasses, 'animate__bounceIn'],
@@ -91,10 +93,12 @@ function animateContent() {
             link: document.getElementById('link-skills'),
             wrp: document.getElementById('skills').getElementsByTagName('h1')[0],
         },
+        /*
         {
             link: document.getElementById('link-projects'),
             wrp: document.getElementById('projects').getElementsByTagName('h1')[0],
         },
+        */
         {
             link: document.getElementById('link-resume'),
             wrp: document.getElementById('resume').getElementsByTagName('h1')[0],

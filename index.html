@@ -38,9 +38,9 @@
             <ul class="nav__menu flex-container">
                 <li class="nav__item nav__logo flex__item--grow"><a class="nav__link" href="index.html"><img src="logo.svg" alt="Webseiten Logo" /></a></li>
                 <li class="nav__item "><a class="nav__link" id="link-skills" href="#skills">Skills</a></li>
-                <li class="nav__item "><a class="nav__link" id="link-projects" href="#projects">Projekte</a></li>
-                <li class="nav__item "><a class="nav__link" id="link-resume" href="#resume">Lebenslauf</a></li>
+                <!--<li class="nav__item "><a class="nav__link" id="link-projects" href="#projects">Projekte</a></li>-->
                 <li class="nav__item "><a class="nav__link" id="link-contact" href="#contact">Kontakt</a></li>
+                <li class="nav__item "><a class="nav__link" id="link-resume" href="#resume">Lebenslauf</a></li>
                 <li class="nav__item nav__toggle ">
                     <i id="nav__toggle--open" class="lni lni-list"></i>
                     <i id="nav__toggle--close" class="hidden lni lni-close"></i>
@@ -50,9 +50,9 @@
         <nav id="nav-mobile" class="hidden">
             <ul>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projekte</a></li>
-                <li><a href="#resume">Lebenslauf</a></li>
+                <!--<li><a href="#projects">Projekte</a></li>-->
                 <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#resume">Lebenslauf</a></li>
             </ul>
         </nav>
 
@@ -104,12 +104,15 @@
                     <h2>Backend Entwicklung</h2>
                     <abbr title="Hypertext Preprocessor - Skriptsprache zur Erstellung dynamischer Webseiten.">PHP</abbr>
                     <abbr title="Kompilierbare Programmiersprache - die Nebenläufigkeit und automatische Speicherbereinigung unterstützt.">Go</abbr>
-                    <abbr title="Laravel - Webframework mit wiederverwendbaren PHP-Komponenten/Bibliotheken.">Laravel</abbr>
+                    <abbr title="Javascript - Skriptsprache für dynamisches HTML in Webbrowsern.">Javascript</abbr>
+                    <!-- <abbr title="Laravel - Webframework mit wiederverwendbaren PHP-Komponenten/Bibliotheken.">Laravel</abbr>
                     <abbr title="Drupal - Content-Management-System und Framework.">Drupal</abbr>
+                    -->
                     <p>Um ihre Businesslogik nachhaltig zu Implementieren, 
                     lege ich im Backend viel Wert auf die Auswahl der passenden Architektur, 
                     Clean Code und eine gute Dokumentation.</p>
                 </div>
+                <!--
                 <div class="skill flex__item gradient--dark">
                     <i class="lni lni-brush-alt"></i>
                     <h2>Frontend Entwicklung</h2>
@@ -122,6 +125,7 @@
                     lege ich bei der Umsetzung der UX/UI viel Wert auf eine detailgetreue Arbeit.
                     </p>
                 </div>
+                -->
                 <div class="skill flex__item gradient--dark">
                     <i class="lni lni-database"></i>
                     <h2>Datenbank Entwicklung</h2>
@@ -146,6 +150,7 @@
             </div>
         </section>
 
+        <!--
         <section id="projects" class="section--light">
             <h1>Projekte</h1>
             <div class="proj-wrp flex-container">
@@ -196,6 +201,24 @@
                 </div>
             </div>
         </section>
+        -->
+
+        <section id="contact" class="section--light">
+            <div class="section__bg section__bg--left"><i class="lni lni-rocket"></i></div>
+            <div class="section__bg section__bg--right"><i class="lni lni-envelope"></i></div>
+            <h1>Kontakt</h1>
+            <div class="contact-wrp flex-container">
+                <div id="contact-form" class="flex__item gradient--light">
+                    <form name="contact">
+                        <input type="text" name="name" placeholder="Name" />
+                        <input type="email" name="email" placeholder="E-Mail" />
+                        <textarea name="message" rows="6" placeholder="Nachricht"></textarea>
+                        <input type="button" class="button button--large" value="Senden" onclick="submitContactForm()" />
+                    </form>
+                </div>
+            </div>
+            <div id="message-wrp" class="flex-container"></div>
+        </section>
 
         <section id="resume" class="section--dark">
             <h1>Lebenslauf</h1>
@@ -204,29 +227,34 @@
                     <h2>Berufserfahrung</h2>
                     <ul>
                         <li>
-                            <p class="resume__date">09/2018 - 02/2021</p>
-                            <p class="resume__position">Senior Full-Stack Entwickler</p>
-                            <p class="resume__company">Busch & Glatz GmbH</p>
+                            <p class="resume__date">01/2024 - Heute</p>
+                            <p class="resume__position">Full-Stack Entwickler</p>
+                            <p class="resume__company">Lussaio</p>
                         </li>
                         <li>
-                            <p class="resume__date">07/2016 - 08/2018</p>
+                            <p class="resume__date">08/2022 - 09/2023</p>
                             <p class="resume__position">Full-Stack Entwickler</p>
-                            <p class="resume__company">Busch & Glatz GmbH</p>
+                            <p class="resume__company">NetMarket GmbH</p>
+                        </li>
+                        <li>
+                            <p class="resume__date">07/2016 - 02/2021</p>
+                            <p class="resume__position">Full-Stack Entwickler</p>
+                            <p class="resume__company">BranchCloud GmbH</p>
                         </li>
                         <li>
                             <p class="resume__date">09/2014 – 06/2016</p>
                             <p class="resume__position">Azubi Full-Stack Entwickler</p>
-                            <p class="resume__company">Adduce GmbH</p>
+                            <p class="resume__company">impress GmbH</p>
                         </li>
                         <li>
                             <p class="resume__date">11/2012 – 01/2014</p>
                             <p class="resume__position">Werkstudent Full-Stack Entwickler</p>
-                            <p class="resume__company">Adduce GmbH</p>
+                            <p class="resume__company">impress GmbH</p>
                         </li>
                         <li>
                             <p class="resume__date">02/2011 – 01/2012</p>
                             <p class="resume__position">Praktikant Full-Stack Entwickler</p>
-                            <p class="resume__company">Adduce GmbH</p>
+                            <p class="resume__company">impress GmbH</p>
                         </li>
                     </ul>
                 </div>
@@ -256,23 +284,6 @@
                     </ul>
                 </div>
             </div>
-        </section>
-
-        <section id="contact" class="section--light">
-            <div class="section__bg section__bg--left"><i class="lni lni-rocket"></i></div>
-            <div class="section__bg section__bg--right"><i class="lni lni-envelope"></i></div>
-            <h1>Kontakt</h1>
-            <div class="contact-wrp flex-container">
-                <div id="contact-form" class="flex__item gradient--light">
-                    <form name="contact">
-                        <input type="text" name="name" placeholder="Name" />
-                        <input type="email" name="email" placeholder="E-Mail" />
-                        <textarea name="message" rows="6" placeholder="Nachricht"></textarea>
-                        <input type="button" class="button button--large" value="Senden" onclick="submitContactForm()" />
-                    </form>
-                </div>
-            </div>
-            <div id="message-wrp" class="flex-container"></div>
         </section>
     </main>
 
